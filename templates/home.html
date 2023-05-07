@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Welcome to the Madlibs Game!</h1>
+  <form action="{{ url_for('show_story') }}">
+    {% for prompt in prompts %}
+      <label for="{{ prompt }}">{{ prompt.capitalize() }}:</label>
+      <input type="text" name="{{ prompt }}" id="{{ prompt }}" required><br>
+    {% endfor %}
+    <br>
+    <button type="submit">Generate Story</button>
+  </form>
+{% endblock %}
+
+
